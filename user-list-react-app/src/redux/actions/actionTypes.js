@@ -1,0 +1,1 @@
+export const ON_MOUSE_HOVER = 'ON_MOUSE_HOVER'

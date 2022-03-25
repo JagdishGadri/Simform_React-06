@@ -1,0 +1,9 @@
+.user-list{
+    background-color: white;
+ 
+}
+
+.list-title{
+    display: grid;
+    grid-template-columns:260px 250px 250px;
+}
