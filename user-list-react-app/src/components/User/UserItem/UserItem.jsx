@@ -2,10 +2,11 @@ import React from "react";
 import "./UserItem.css";
 import { Trash2, Lock } from "react-feather";
 import { useDispatch } from "react-redux";
-import {onMouseHover} from "../../../redux/actions/actions"
+import {fetchUsersData, onMouseHover} from "../../../redux/actions/actions"
 
 function UserItem(props) {
-  const dispatch=useDispatch()
+  const dispatch = useDispatch()
+  dispatch(fetchUsersData)
 
   return (
     <div className="user-item"   >
@@ -18,7 +19,7 @@ function UserItem(props) {
         />
         <div className="user-name-email">
           <div className="user-name">
-            <h5>{props.userFirstName + " " + props.userLastName}</h5>
+            <p>{props.userFirstName + " " + props.userLastName}</p>
           </div>
           <div className="user-email">
             <h6>{props.userEmail}</h6>

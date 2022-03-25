@@ -7,9 +7,9 @@ function UserList({userData}) {
   return (
     <div className="user-list">
       <div className="list-title">
-        <div>Name</div>
-        <div>Status</div>
-        <div>Access</div>
+        <strong>Name</strong>
+        <strong>Status</strong>
+        <strong>Access</strong>
       </div>
 
       <div className="list-data">
