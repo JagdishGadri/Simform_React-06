@@ -3,7 +3,6 @@
     width: 80%;
     min-height: 636px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     padding: 30px;
 }

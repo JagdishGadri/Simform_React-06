@@ -1,0 +1,11 @@
+.pagination{
+    display: flex;
+    flex-direction: row;
+}
+
+.page-number{
+    list-style-type: none;
+    margin: 5px;
+    border: 1px solid blue;
+    padding: 5px;
+}

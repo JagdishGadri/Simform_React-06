@@ -1,20 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import HoverCard from "./HoverCard/HoverCard";
-import styled from "./UserContainer.css";
+import "./UserContainer.css"
 import UserList from "./User/UserList/UserList";
 import { useDispatch } from "react-redux";
 import {fetchUsersData} from "../redux/actions/actions"
+import Pagination from "../components/Pagination/Pagination"
 
 function UserContainer() {
   const dispatch = useDispatch()
-  useEffect(()=>{
-    dispatch(fetchUsersData())
-  })
+ const [pageNumber,setPageNumber] = useState(1)
+
+ const changePage=(page)=>{
+   setPageNumber(page)
+   dispatch(fetchUsersData(pageNumber))
+ }
+
+useEffect(()=> {dispatch(fetchUsersData(pageNumber))
+  },[])
+
+
   
 
   return (
     <div className="user-container">
       <UserList/>
+      <Pagination changePage={changePage}/>
       <HoverCard/>
     </div>
   );

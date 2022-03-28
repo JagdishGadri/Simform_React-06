@@ -25,14 +25,26 @@ export const fetchUserSuccess = (userData) => {
   };
 };
 
-export const fetchUsersData = () => {
+export const fetchUsersData = (pageNumber) => {
   return (dispatch) => {
+    
     dispatch(fetchUsersRequest())
-    axios.get("https://reqres.in/api/users?page=1")
+    if(pageNumber===1){
+      axios.get("https://reqres.in/api/users?page=1")
     .then(response =>{
       const userData=response.data.data;
       dispatch(fetchUserSuccess(userData))
     })
+    }
+    else{
+      axios.get("https://reqres.in/api/users?page=2")
+      .then(response =>{
+        const userData=response.data.data;
+        dispatch(fetchUserSuccess(userData))
+        console.log("hi")
+      })
+    }
+   
   };
 };
 
