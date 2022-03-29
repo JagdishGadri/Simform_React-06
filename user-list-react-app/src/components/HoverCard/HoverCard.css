@@ -28,8 +28,8 @@
   margin: 20px;
 }
 
-.user-meter{
-  width:100%;
+.user-meter {
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin-left: 70px;
@@ -39,42 +39,42 @@ meter::-webkit-meter-optimum-value {
   background: rgb(245, 175, 70);
 }
 meter {
-  width:80%;
+  width: 80%;
 }
 
 meter::-webkit-meter-bar {
   background: rgb(255, 228, 168);
 
   border: none;
-  width:89%;
+  width: 89%;
   height: 5px;
 }
 
-.card-active-button{
+.card-active-button {
   background-color: rgb(238, 183, 111);
   width: 60%;
   height: 7%;
   border-radius: 5px;
   border: none;
-  color:white;
+  color: white;
 }
 
-.click-bar{
+.click-bar {
   width: 2px;
   height: 45px;
   opacity: 0.5;
   background-color: black;
-  margin-left:10px;
-  margin-right:10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.no-user-text{
- display:flex;
- flex-direction: column;
- background-color: rgb(179, 206, 247);
- border-radius: 6px;
- padding:15px;
- align-items: center;
- margin: 70px 10px;
- height: 100px;
+.no-user-text {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(179, 206, 247);
+  border-radius: 6px;
+  padding: 15px;
+  align-items: center;
+  margin: 70px 10px;
+  height: 100px;
 }

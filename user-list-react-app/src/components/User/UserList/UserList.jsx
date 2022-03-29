@@ -1,9 +1,11 @@
 import React from "react";
 import UserItem from "../UserItem/UserItem";
-import { connect } from "react-redux";
-import "./UserList.css"
+import { connect, useSelector } from "react-redux";
+import "./UserList.css";
 
-function UserList({userData}) {
+function UserList() {
+  const User = useSelector((state) => state.fetchedData);
+
   return (
     <div className="user-list">
       <div className="list-title">
@@ -13,7 +15,7 @@ function UserList({userData}) {
       </div>
 
       <div className="list-data">
-        {userData.map((user) => (
+        {User.map((user) => (
           <UserItem
             userFirstName={user.first_name}
             userLastName={user.last_name}
@@ -28,12 +30,11 @@ function UserList({userData}) {
   );
 }
 
-const mapStateToProps = (state) =>{
-  return{
-    userData : state.data
-  }
-}
-
-
+const mapStateToProps = (state) => {
+  return {
+    userData: state.fetchedData,
+    deletedId: state.deletedId,
+  };
+};
 
 export default connect(mapStateToProps)(UserList);

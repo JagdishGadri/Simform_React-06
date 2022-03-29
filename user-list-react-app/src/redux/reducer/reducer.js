@@ -1,15 +1,16 @@
-import { ON_MOUSE_HOVER,FETCH_USERS_REQUEST,
-  FETCH_USER_SUCCESS } from "../actions/actionTypes";
-
+import {
+  ON_MOUSE_HOVER,
+  FETCH_USERS_REQUEST,
+  FETCH_USER_SUCCESS,
+  DELETE_USER,
+} from "../actions/actionTypes";
 
 const initialState = {
   initialId: null,
-  loading:true,
-  data: [],
-  error:''
+  loading: true,
+  fetchedData: [],
+  deletedId: null,
 };
-
-
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -18,28 +19,32 @@ const reducer = (state = initialState, action) => {
         ...state,
         initialId: action.payload,
       };
-      case FETCH_USERS_REQUEST:
-        return{
-          ...state,
-          loading:true
-
-        }
-      case FETCH_USER_SUCCESS:
-        return{
-          ...state,
-          loading:false ,
-          data : action.payload
-        }
+    case FETCH_USERS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case FETCH_USER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        fetchedData: action.payload,
+      };
+    case DELETE_USER:
+      const newData = state.fetchedData.filter(
+        (user) => user.id !== action.payload
+      );
+      return {
+        ...state,
+        deletedId: null,
+        fetchedData: newData,
+      };
     default:
       return state;
   }
 };
 
 export default reducer;
-
-
-
-
 
 // {
 //   id: 1,
