@@ -4,6 +4,16 @@ import "./Pagination.css";
 function Pagination(props) {
  
     let currentPage=1;
+
+    const pageOneHandler = () => {
+      currentPage!=1 ? currentPage-=1 : currentPage=1
+      props.changePage(currentPage);
+    }
+
+    const pageTwoHandler = () => {
+      currentPage!=2 ? currentPage+=1 : currentPage=2
+      props.changePage(currentPage);
+    }
     
 
   return (
@@ -11,10 +21,7 @@ function Pagination(props) {
       <ul className="pagination">
         <li className="page-number">
           <a
-            href="!#"
-            onClick={() => {
-              props.changePage(currentPage);
-            }}
+            onClick={pageOneHandler}
           >
             {" "}
             &lt;&lt; Prev{" "}
@@ -22,32 +29,21 @@ function Pagination(props) {
         </li>
         <li className="page-number">
           <a
-            href="!#"
-            onClick={() => {
-              props.changePage(currentPage);
-            }}
+            onClick= {pageOneHandler}
           >
             1
           </a>
         </li>
         <li className="page-number">
           <a
-            href="!#"
-            onClick={() => {
-                currentPage +=1;
-                props.changePage(currentPage);
-            }}
+            onClick={pageTwoHandler}
           >
             2
           </a>
         </li>
         <li className="page-number">
           <a
-            href="!#"
-            onClick={() => {
-              currentPage +=1;
-              props.changePage(currentPage);
-            }}
+            onClick={pageTwoHandler}
           >
             Next &gt;&gt;
           </a>
